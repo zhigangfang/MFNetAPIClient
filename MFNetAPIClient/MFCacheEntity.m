@@ -8,7 +8,7 @@
 
 #import "MFCacheEntity.h"
 #import "CocoaSecurity.h"
-#import "NSDictionary+MFJSONFormat.h"
+#import "NSObject+MFJSONFormat.h"
 
 @implementation MFCacheEntity
 

@@ -7,6 +7,7 @@
 //
 
 #import "MFJSONResponseSerializer.h"
+#import "NSString+MFCommon.h"
 
 static NSError * AFErrorWithUnderlyingError(NSError *error, NSError *underlyingError) {
     if (!error) {
@@ -60,30 +61,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 @implementation MFJSONResponseSerializer
 
-/*
-+ (instancetype)serializer {
-    return [self serializerWithReadingOptions:(NSJSONReadingOptions)0];
-}
-
-+ (instancetype)serializerWithReadingOptions:(NSJSONReadingOptions)readingOptions {
-    MFJSONResponseSerializer *serializer = [[self alloc] init];
-    serializer.readingOptions = readingOptions;
-    
-    return serializer;
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
-    
-    return self;
-}
- */
-
 #pragma mark - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
@@ -104,9 +81,9 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     if (data.length > 0 && !isSpace) {
         
         NSString *responseString = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];
-        NSLog(@"response string: %@", responseString);
-        
-        responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
+//        NSLog(@"response string: %@", responseString);
+        //删除转义字符  
+        responseObject = [NSJSONSerialization JSONObjectWithData:[[responseString mf_removeUnescapedCharacter] dataUsingEncoding:NSUTF8StringEncoding] options:self.readingOptions error:&serializationError];
         
     } else {
         return nil;

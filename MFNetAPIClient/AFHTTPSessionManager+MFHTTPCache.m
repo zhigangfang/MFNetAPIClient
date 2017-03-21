@@ -8,7 +8,7 @@
 
 #import <objc/runtime.h>
 #import "AFHTTPSessionManager+MFHTTPCache.h"
-#import "NSDictionary+MFJSONFormat.h"
+#import "NSObject+MFJSONFormat.h"
 #import "NSString+MFEncryption.h"
 #import "TMCache.h"
 

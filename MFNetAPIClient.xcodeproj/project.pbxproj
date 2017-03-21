@@ -12,6 +12,10 @@
 		B53CE3631E7A715600DD7BB6 /* MFNetAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B53CE3621E7A715600DD7BB6 /* MFNetAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B53CE36A1E7A715600DD7BB6 /* MFNetAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53CE35F1E7A715600DD7BB6 /* MFNetAPIClient.framework */; };
 		B53CE36F1E7A715600DD7BB6 /* MFNetAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CE36E1E7A715600DD7BB6 /* MFNetAPIClientTests.m */; };
+		B5E7B0F11E81090C00BADEE9 /* NSString+MFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B5E7B0EF1E81090C00BADEE9 /* NSString+MFCommon.h */; };
+		B5E7B0F21E81090C00BADEE9 /* NSString+MFCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E7B0F01E81090C00BADEE9 /* NSString+MFCommon.m */; };
+		B5E7B0F51E81094600BADEE9 /* NSObject+MFJSONFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = B5E7B0F31E81094600BADEE9 /* NSObject+MFJSONFormat.h */; };
+		B5E7B0F61E81094600BADEE9 /* NSObject+MFJSONFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E7B0F41E81094600BADEE9 /* NSObject+MFJSONFormat.m */; };
 		B5FE5CFC1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FE5CFA1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.h */; };
 		B5FE5CFD1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5CFB1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.m */; };
 		B5FE5D001E7A7564000C0631 /* MFCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FE5CFE1E7A7564000C0631 /* MFCacheEntity.h */; };
@@ -20,8 +24,6 @@
 		B5FE5D0D1E7A756F000C0631 /* MFURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5D031E7A756F000C0631 /* MFURLSessionDataTask.m */; };
 		B5FE5D0E1E7A756F000C0631 /* MFURLSessionDataTaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FE5D041E7A756F000C0631 /* MFURLSessionDataTaskManager.h */; };
 		B5FE5D0F1E7A756F000C0631 /* MFURLSessionDataTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5D051E7A756F000C0631 /* MFURLSessionDataTaskManager.m */; };
-		B5FE5D101E7A756F000C0631 /* NSDictionary+MFJSONFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FE5D061E7A756F000C0631 /* NSDictionary+MFJSONFormat.h */; };
-		B5FE5D111E7A756F000C0631 /* NSDictionary+MFJSONFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5D071E7A756F000C0631 /* NSDictionary+MFJSONFormat.m */; };
 		B5FE5D121E7A756F000C0631 /* NSString+MFEncryption.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FE5D081E7A756F000C0631 /* NSString+MFEncryption.h */; };
 		B5FE5D131E7A756F000C0631 /* NSString+MFEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5D091E7A756F000C0631 /* NSString+MFEncryption.m */; };
 		B5FE5D171E7A7758000C0631 /* MFNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FE5D161E7A7758000C0631 /* MFNetAPIClient.m */; };
@@ -54,6 +56,10 @@
 		B53CE3691E7A715600DD7BB6 /* MFNetAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFNetAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53CE36E1E7A715600DD7BB6 /* MFNetAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFNetAPIClientTests.m; sourceTree = "<group>"; };
 		B53CE3701E7A715600DD7BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5E7B0EF1E81090C00BADEE9 /* NSString+MFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MFCommon.h"; sourceTree = "<group>"; };
+		B5E7B0F01E81090C00BADEE9 /* NSString+MFCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MFCommon.m"; sourceTree = "<group>"; };
+		B5E7B0F31E81094600BADEE9 /* NSObject+MFJSONFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MFJSONFormat.h"; sourceTree = "<group>"; };
+		B5E7B0F41E81094600BADEE9 /* NSObject+MFJSONFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MFJSONFormat.m"; sourceTree = "<group>"; };
 		B5FE5CFA1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+MFHTTPCache.h"; sourceTree = "<group>"; };
 		B5FE5CFB1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+MFHTTPCache.m"; sourceTree = "<group>"; };
 		B5FE5CFE1E7A7564000C0631 /* MFCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFCacheEntity.h; sourceTree = "<group>"; };
@@ -62,8 +68,6 @@
 		B5FE5D031E7A756F000C0631 /* MFURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFURLSessionDataTask.m; sourceTree = "<group>"; };
 		B5FE5D041E7A756F000C0631 /* MFURLSessionDataTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFURLSessionDataTaskManager.h; sourceTree = "<group>"; };
 		B5FE5D051E7A756F000C0631 /* MFURLSessionDataTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFURLSessionDataTaskManager.m; sourceTree = "<group>"; };
-		B5FE5D061E7A756F000C0631 /* NSDictionary+MFJSONFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MFJSONFormat.h"; sourceTree = "<group>"; };
-		B5FE5D071E7A756F000C0631 /* NSDictionary+MFJSONFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MFJSONFormat.m"; sourceTree = "<group>"; };
 		B5FE5D081E7A756F000C0631 /* NSString+MFEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MFEncryption.h"; sourceTree = "<group>"; };
 		B5FE5D091E7A756F000C0631 /* NSString+MFEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MFEncryption.m"; sourceTree = "<group>"; };
 		B5FE5D161E7A7758000C0631 /* MFNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFNetAPIClient.m; sourceTree = "<group>"; };
@@ -133,14 +137,16 @@
 		B53CE3611E7A715600DD7BB6 /* MFNetAPIClient */ = {
 			isa = PBXGroup;
 			children = (
+				B5E7B0F31E81094600BADEE9 /* NSObject+MFJSONFormat.h */,
+				B5E7B0F41E81094600BADEE9 /* NSObject+MFJSONFormat.m */,
+				B5E7B0EF1E81090C00BADEE9 /* NSString+MFCommon.h */,
+				B5E7B0F01E81090C00BADEE9 /* NSString+MFCommon.m */,
 				B53CE3621E7A715600DD7BB6 /* MFNetAPIClient.h */,
 				B5FE5D161E7A7758000C0631 /* MFNetAPIClient.m */,
 				B5FE5D021E7A756F000C0631 /* MFURLSessionDataTask.h */,
 				B5FE5D031E7A756F000C0631 /* MFURLSessionDataTask.m */,
 				B5FE5D041E7A756F000C0631 /* MFURLSessionDataTaskManager.h */,
 				B5FE5D051E7A756F000C0631 /* MFURLSessionDataTaskManager.m */,
-				B5FE5D061E7A756F000C0631 /* NSDictionary+MFJSONFormat.h */,
-				B5FE5D071E7A756F000C0631 /* NSDictionary+MFJSONFormat.m */,
 				B5FE5D081E7A756F000C0631 /* NSString+MFEncryption.h */,
 				B5FE5D091E7A756F000C0631 /* NSString+MFEncryption.m */,
 				B5FE5CFE1E7A7564000C0631 /* MFCacheEntity.h */,
@@ -172,9 +178,10 @@
 			files = (
 				B5FE5CFC1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.h in Headers */,
 				B5FE5D121E7A756F000C0631 /* NSString+MFEncryption.h in Headers */,
+				B5E7B0F51E81094600BADEE9 /* NSObject+MFJSONFormat.h in Headers */,
 				B53CE3631E7A715600DD7BB6 /* MFNetAPIClient.h in Headers */,
+				B5E7B0F11E81090C00BADEE9 /* NSString+MFCommon.h in Headers */,
 				B5FE5D001E7A7564000C0631 /* MFCacheEntity.h in Headers */,
-				B5FE5D101E7A756F000C0631 /* NSDictionary+MFJSONFormat.h in Headers */,
 				B5FE5D0E1E7A756F000C0631 /* MFURLSessionDataTaskManager.h in Headers */,
 				B508DE301E7FCCA7002FA93C /* MFJSONResponseSerializer.h in Headers */,
 				B5FE5D0C1E7A756F000C0631 /* MFURLSessionDataTask.h in Headers */,
@@ -360,12 +367,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5E7B0F21E81090C00BADEE9 /* NSString+MFCommon.m in Sources */,
 				B5FE5D011E7A7564000C0631 /* MFCacheEntity.m in Sources */,
 				B5FE5CFD1E7A7559000C0631 /* AFHTTPSessionManager+MFHTTPCache.m in Sources */,
 				B5FE5D0F1E7A756F000C0631 /* MFURLSessionDataTaskManager.m in Sources */,
 				B508DE311E7FCCA7002FA93C /* MFJSONResponseSerializer.m in Sources */,
+				B5E7B0F61E81094600BADEE9 /* NSObject+MFJSONFormat.m in Sources */,
 				B5FE5D0D1E7A756F000C0631 /* MFURLSessionDataTask.m in Sources */,
-				B5FE5D111E7A756F000C0631 /* NSDictionary+MFJSONFormat.m in Sources */,
 				B5FE5D171E7A7758000C0631 /* MFNetAPIClient.m in Sources */,
 				B5FE5D131E7A756F000C0631 /* NSString+MFEncryption.m in Sources */,
 			);
