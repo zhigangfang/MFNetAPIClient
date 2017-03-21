@@ -1,0 +1,35 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - CocoaSecurity (1.2.4)
+  - Reachability (3.2)
+  - TMCache (2.1.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - CocoaSecurity (~> 1.2.4)
+  - Reachability (~> 3.2)
+  - TMCache (~> 2.1.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
+
+PODFILE CHECKSUM: 9d9c7284e36aef0909b9d3b229d501a0bbb4816b
+
+COCOAPODS: 1.0.0
