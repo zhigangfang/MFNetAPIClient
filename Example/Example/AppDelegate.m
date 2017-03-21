@@ -21,22 +21,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    /*
-    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NewLine" ofType:@"json"] encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"NSString类方法读取的内容是：\n%@",content);
-    
-    NSString *newContent = [content mf_removeUnescapedCharacter];
-    
-    NSError *serializationError = nil;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[newContent dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&serializationError];
-     
-     */
-    
-    [[MFNetAPIClient sharedClient] requestJsonDataWithPath:@"http://beta.json-generator.com/api/json/get/Nyj-xhtif" withParams:nil withMethodType:Get andBlock:^(id data, NSError *error) {
+    //普通模式
+    [[MFNetAPIClientManager clientWithBaseURL:[NSURL URLWithString:@"http://beta.json-generator.com"]] requestJsonDataWithPath:@"/api/json/get/Nyj-xhtif" withParams:nil withMethodType:Get andBlock:^(id data, NSError *error) {
         
-        
+        //do something here.
         
     }];
+    
+    
+    //参差业务判断
+//    http://beta.json-generator.com/api/json/get/E15soRtsG
+    MFNetAPIClient *client = [MFNetAPIClientManager clientWithBaseURL:[NSURL URLWithString:@"http://beta.json-generator.com"]];
+    //配置接口返回参数名
+    [client setResponseConfig:[[MFNetResponseConfig alloc] initWithCodeName:@"resultCode" msgNmae:@"resultMsg"]];
+    
+    [client requestJsonDataWithPath:@"/api/json/get/E15soRtsG" withParams:nil withMethodType:Get successBlock:^(id data) {
+        
+        //here 'resultCode' = 0
+    } failBlock:^(id data, NSError *error) {
+        
+        //here 'resultCode' = 1   or   other network error
+        
+    } defaultBlock:^{
+        //default do something, such as hide hud.
+    }];
+    
+    
     
     
     return YES;

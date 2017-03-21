@@ -36,14 +36,10 @@
 static MFNetAPIClient *_sharedClient = nil;
 static dispatch_once_t onceToken;
 
-+ (MFNetAPIClient *)sharedClient {
++ (MFNetAPIClient *)sharedClientWithBaseURL:(NSURL *)url {
     
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[MFNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
-        
-        _sharedClient.realBaseURL = [NSURL URLWithString:BASE_URL];
-        [_sharedClient startReachabilityMonitor];
-        _sharedClient.cachePolicy = MFHTTPCachedEveryRequest;  //默认缓存策略
+        _sharedClient = [[MFNetAPIClient alloc] initWithBaseURL:url];
     
     });
     
@@ -104,27 +100,32 @@ static dispatch_once_t onceToken;
     
     self = [super initWithBaseURL:url];
     
-    if (!self) {
-        return nil;
+    if (self) {
+        
+        self.realBaseURL = url;
+        [self startReachabilityMonitor];
+        self.cachePolicy = MFHTTPCachedEveryRequest;  //默认缓存策略
+        
+        
+        self.responseSerializer = [MFJSONResponseSerializer serializer];
+        self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", @"text/html", nil];
+        
+        [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [self.requestSerializer setValue:url.absoluteString forHTTPHeaderField:@"Referer"];
+        [self.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        self.requestSerializer.timeoutInterval = 15.f;
+        [self.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        
+        
+        //    self.requestSerializer.removesKeysWithNullValues = YES;
+        
+        
+        
+        self.securityPolicy.allowInvalidCertificates = YES;
+        
     }
-    
-    self.responseSerializer = [MFJSONResponseSerializer serializer];
-    self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", @"text/html", nil];
-    
-    [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [self.requestSerializer setValue:url.absoluteString forHTTPHeaderField:@"Referer"];
-    [self.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    self.requestSerializer.timeoutInterval = 15.f;
-    [self.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    
-//    self.requestSerializer.removesKeysWithNullValues = YES;
-    
-    
-    
-    self.securityPolicy.allowInvalidCertificates = YES;
     
     return self;
 }
@@ -558,6 +559,58 @@ static dispatch_once_t onceToken;
          withParams:(NSDictionary*)params
            andBlock:(void (^)(id data, NSError *error))block {
     
+}
+
+@end
+
+
+
+static MFNetAPIClientManager *_clientManager = nil;
+static dispatch_once_t onceTokenn;
+
+@implementation MFNetAPIClientManager {
+    NSMutableDictionary *_clientMap;
+}
+
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _clientMap = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
++ (MFNetAPIClient *)clientWithBaseURL:(NSURL *)url {
+    
+    dispatch_once(&onceTokenn, ^{
+        _clientManager = [[MFNetAPIClientManager alloc] init];
+        
+    });
+    
+    MFNetAPIClient *client = [_clientManager p__fetchClientWithBaseURL:url];
+    
+    return client;
+}
+
++ (void)clearClients {
+    if (_clientManager) {
+        [_clientManager p__clear];
+    }
+}
+
+- (MFNetAPIClient *)p__fetchClientWithBaseURL:(NSURL *)url {
+    
+    MFNetAPIClient *client = [_clientMap objectForKey:[url absoluteString]];
+    if (!client) {
+        client = [MFNetAPIClient sharedClientWithBaseURL:url];
+    }
+    
+    return client;
+}
+
+- (void)p__clear {
+    [_clientMap removeAllObjects];
 }
 
 @end

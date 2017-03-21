@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, NetworkMethod) {
 
 @property (assign, nonatomic) AFNetworkReachabilityStatus currentNetworkReachabilityStatus;
 
-+ (MFNetAPIClient *)sharedClient;
++ (MFNetAPIClient *)sharedClientWithBaseURL:(NSURL *)url;
 
 - (void)startReachabilityMonitor;
 
@@ -128,6 +128,15 @@ typedef NS_ENUM(NSInteger, NetworkMethod) {
          withParams:(NSDictionary*)params
            andBlock:(void (^)(id data, NSError *error))block;
 
+
+@end
+
+
+@interface MFNetAPIClientManager : NSObject
+
++ (MFNetAPIClient *)clientWithBaseURL:(NSURL *)url;
+
++ (void)clearClients;
 
 @end
 
