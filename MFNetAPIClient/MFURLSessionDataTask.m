@@ -17,7 +17,6 @@ typedef NS_ENUM(NSInteger, MFHTTPStatus) {
     MFHTTPStatusNotModified = 304,
     MFHTTPStatusError =500,
     MFHTTPStatusNotFound = 0
-    
 };
 
 

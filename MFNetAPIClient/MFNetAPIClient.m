@@ -7,8 +7,6 @@
 //
 
 
-#define BASE_URL @"www.baidu.com"
-
 #import "MFNetAPIClient.h"
 #import "Reachability.h"
 #import "MFJSONResponseSerializer.h"
@@ -105,6 +103,15 @@ static dispatch_once_t onceToken;
         self.realBaseURL = url;
         [self startReachabilityMonitor];
         self.cachePolicy = MFHTTPCachedEveryRequest;  //默认缓存策略
+        
+        
+        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+        //allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO//如果是需要验证自建证书，需要设置为YES
+        securityPolicy.allowInvalidCertificates = YES;
+        //validatesDomainName 是否需要验证域名，默认为YES；
+        securityPolicy.validatesDomainName = NO;
+        self.securityPolicy  = securityPolicy;
+        
         
         
         self.responseSerializer = [MFJSONResponseSerializer serializer];
